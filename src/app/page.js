@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gap-5 pt-5">
-      <Link className="w-[256px] md:w-[320px] h-auto" href="/">
+      <Link className="w-[128px] md:w-[256px] h-auto" href="/">
         <Image
           className="w-full h-full"
           src={`/logo.png`}
@@ -35,13 +35,9 @@ export default function Home() {
         >
           Files
         </Link>
-        <div>|</div>
-        <Link
-          className="text-navy border-b-1 border-transparent hover:border-navy"
-          href="/videos"
-        >
-          Videos
-        </Link>
+      </div>
+      <div className="md:w-[640px] px-5 md:px-0 pb-2">
+        <TourDates />
       </div>
       <div className="text-xs text-navy">
         BitCoin:{" "}
@@ -51,9 +47,6 @@ export default function Home() {
         >
           12WmEMVUBQm7U6FuERLLHf1iKkx7LnkkLGn
         </Link>
-      </div>
-      <div className="md:w-[640px] pb-2">
-        <TourDates />
       </div>
       <div className="pb-5 text-[11px] font-bold text-muted">
         &copy; 2026 Lip Critic

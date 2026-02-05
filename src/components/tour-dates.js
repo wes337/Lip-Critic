@@ -164,7 +164,7 @@ const TOUR_DATES = [
   },
   {
     date: "June 23, 2026",
-    venue: "Little Giant @ Bottlerocket Social Hall",
+    venue: "Bottlerocket Social Hall",
     city: "Pittsburgh",
     state: "PA",
     support: ["Bejalvin", "Flatwounds"],
@@ -180,12 +180,11 @@ const TOUR_DATES = [
 
 export default function TourDates() {
   return (
-    <table className="w-full">
+    <table className="m-auto">
       <thead className="bg-dark text-[11px] font-bold text-left">
         <tr>
           <th className="p-1">Date</th>
-          <th className="p-1">Venue</th>
-          <th className="p-1 text-center">Location</th>
+          <th className="p-1 text-left">Location</th>
           <th className="p-1 text-center">Tickets</th>
         </tr>
       </thead>
@@ -197,17 +196,19 @@ export default function TourDates() {
           >
             <td className="p-2 text-navy font-bold">{tourDate.date}</td>
             <td className="p-2">
-              <div className="font-bold">{tourDate.venue}</div>
+              <div className="font-bold">
+                {tourDate.city}, {tourDate.state}
+              </div>
+              <div className="flex text-[11px] text-muted gap-1">
+                <div className="font-bold">@ {tourDate.venue}</div>
+                {tourDate.support.length > 0 && (
+                  <div className="italic">
+                    with {tourDate.support.join(", ")}
+                  </div>
+                )}{" "}
+              </div>
+            </td>
 
-              {tourDate.support.length > 0 && (
-                <div className="text-[11px] text-muted">
-                  {tourDate.support.join(", ")}
-                </div>
-              )}
-            </td>
-            <td className="p-2 text-center">
-              {tourDate.city}, {tourDate.state}
-            </td>
             <td className="p-2 text-navy font-bold flex items-center justify-center h-[48px] gap-2">
               <div>Get Tickets</div>
               <div>

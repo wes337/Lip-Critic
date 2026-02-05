@@ -1,24 +1,8 @@
-import Papa from "papaparse";
+import About from "@/components/about";
 import Image from "next/image";
 import Link from "next/link";
-import FilesList from "@/components/files";
 
-async function getFiles() {
-  const SHEET_ID = "1-qj5OIBbLEN56FnSvw6QKKNaQbwNnE_uuonbgxkyPio";
-  const SHEET_GID = "2073990181";
-
-  const response = await fetch(
-    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SHEET_GID}`,
-  );
-
-  const csv = await response.text();
-  const { data } = Papa.parse(csv);
-  return data;
-}
-
-export default async function Files() {
-  const files = await getFiles();
-
+export default function AboutPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gap-5 pt-5">
       <Link className="w-[128px] md:w-[256px] h-auto" href="/">
@@ -39,21 +23,21 @@ export default async function Files() {
         </Link>
         <div>|</div>
         <Link
-          className="text-navy border-b-1 border-transparent hover:border-navy"
+          className="text-black font-bold border-b-1 border-dotted"
           href="/about"
         >
           About
         </Link>
         <div>|</div>
         <Link
-          className="text-black font-bold border-b-1 border-dotted"
+          className="text-navy border-b-1 border-transparent hover:border-navy"
           href="/files"
         >
           Files
         </Link>
       </div>
       <div className="md:w-[640px] px-5 md:px-0 pb-2">
-        <FilesList files={files} />
+        <About />
       </div>
       <div className="text-xs text-navy">
         BitCoin:{" "}
